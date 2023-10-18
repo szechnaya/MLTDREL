@@ -1,0 +1,6 @@
+[submodule "thirdparty/DereTore"]
+	path = thirdparty/DereTore
+	url = https://github.com/OpenCGSS/DereTore.git
+[submodule "thirdparty/AssetStudio"]
+	path = thirdparty/AssetStudio
+	url = https://github.com/hozuki/AssetStudio.git

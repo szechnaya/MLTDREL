@@ -1,0 +1,39 @@
+# https://www.appveyor.com/docs/appveyor-yml/
+
+version: 0.3.0.{build}
+image: Visual Studio 2017
+branches:
+  except:
+    - media
+platform:
+  - Any CPU
+configuration:
+  - Release
+environment:
+  EnableNuGetPackageRestore: true
+  Release_Suffix:
+  NuGet_API_Key:
+    secure: izZ+2u3Vp3ykQNtVQqYtsmP4SoCO3vZ0gUp4zFCRsa0pBNgdkX354tc7VItMD5yh
+install:
+  - ps: .\scripts\install.ps1
+before_build:
+  - cmd: nuget update -self
+  - cmd: git submodule update --init --recursive
+  - cmd: npm install -g marked
+  - ps: .\scripts\nuget_restore.ps1
+build_script:
+  - cmd: msbuild ./src/MLTDTools.sln /p:Configuration=Release /verbosity:minimal /p:nowarn="1574,1591"
+after_build:
+  - ps: .\scripts\write_version_info.ps1
+  - ps: .\scripts\pack_artifacts.ps1 -ZipName miritore.zip
+test: false
+deploy:
+  - provider: GitHub
+    description: MLTDTools
+    auth_token:
+      secure: u+MFjjY665AT4PHJ2bFMINBLnnnwSj1jLnNeFZoWfeYbomTNSPOmdahffmZa+dRH
+    artifact: 'Versioned'
+    draft: false
+    prerelease: false
+    on:
+      APPVEYOR_REPO_TAG: true

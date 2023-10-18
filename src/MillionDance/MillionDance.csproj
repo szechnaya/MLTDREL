@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8A36E44E-4CF7-48A6-874C-FC770D02D874}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>OpenMLTD.MillionDance</RootNamespace>
+    <AssemblyName>MillionDance</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="JetBrains.Annotations, Version=2020.1.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325">
+      <HintPath>..\packages\JetBrains.Annotations.2020.1.0\lib\net20\JetBrains.Annotations.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OpenTK, Version=3.2.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4">
+      <HintPath>..\packages\OpenTK.3.2\lib\net20\OpenTK.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationHelper.cs" />
+    <Compile Include="Core\AppealHelper.cs" />
+    <Compile Include="Core\CameraOrientation.cs" />
+    <Compile Include="Core\ConversionConfig.cs" />
+    <Compile Include="Core\FrameRate.cs" />
+    <Compile Include="Core\IBodyAnimationSource.cs" />
+    <Compile Include="Core\IO\MvdWriter.cs" />
+    <Compile Include="Core\IO\PmxWriter.cs" />
+    <Compile Include="Core\IO\ResourceLoader.cs" />
+    <Compile Include="Core\IO\VmdWriter.cs" />
+    <Compile Include="Core\MltdAnimation.cs" />
+    <Compile Include="Core\MotionFormat.cs" />
+    <Compile Include="Core\MvdCreator.Camera.cs" />
+    <Compile Include="Core\MvdCreator.cs" />
+    <Compile Include="Core\PmxCreator.ConversionDetails.cs" />
+    <Compile Include="Core\PmxCreator.Model.cs" />
+    <Compile Include="Core\PmxCreator.Physics.cs" />
+    <Compile Include="Core\PmxCreator.Physics.PhysicsObject.cs" />
+    <Compile Include="Core\SkeletonFormat.cs" />
+    <Compile Include="Core\VmdCreator.Dance.cs" />
+    <Compile Include="Core\VmdCreator.Camera.cs" />
+    <Compile Include="Core\VmdCreator.FacialExpressions.cs" />
+    <Compile Include="Core\VmdCreator.FacialExpressionTable.cs" />
+    <Compile Include="Core\VmdCreator.Light.cs" />
+    <Compile Include="Entities\Extensions\KeyTypeExtension.cs" />
+    <Compile Include="Entities\Extensions\PropertyTypeExtension.cs" />
+    <Compile Include="Entities\Extensions\ScenarioObjectExtensions.cs" />
+    <Compile Include="Entities\Internal\AnimationSet.cs" />
+    <Compile Include="Entities\Internal\AnimationSet`1.cs" />
+    <Compile Include="Entities\Internal\BakedMaterial.cs" />
+    <Compile Include="Entities\Internal\CameraAnimation.cs" />
+    <Compile Include="Entities\Internal\CameraAnimationSet`1.cs" />
+    <Compile Include="Entities\Internal\CameraFrame.cs" />
+    <Compile Include="Entities\Internal\DanceAnimationSet`1.cs" />
+    <Compile Include="Entities\Mltd\CompiledBodyAnimationSource.cs" />
+    <Compile Include="Entities\Mltd\LegacyBodyAnimationSource.cs" />
+    <Compile Include="Entities\Mvd\InterpolationPair.cs" />
+    <Compile Include="Entities\Mvd\MvdBaseFrame.cs" />
+    <Compile Include="Entities\Mvd\MvdBaseMotion.cs" />
+    <Compile Include="Entities\Mvd\MvdCameraFrame.cs" />
+    <Compile Include="Entities\Mvd\MvdCameraMotion.cs" />
+    <Compile Include="Entities\Mvd\MvdCameraObject.cs" />
+    <Compile Include="Entities\Mvd\MvdCameraPropertyFrame.cs" />
+    <Compile Include="Entities\Mvd\MvdModelObject.cs" />
+    <Compile Include="Entities\Mvd\MvdMotion.cs" />
+    <Compile Include="Entities\OpenTK\Vector2i.cs" />
+    <Compile Include="Entities\Pmx\Extensions\PmxPassGroupExtensions.cs" />
+    <Compile Include="Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Extensions\Internal\ArrayEnumerateHelper`1.cs" />
+    <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="FMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMain.Designer.cs">
+      <DependentUpon>FMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainWorkerInputParams.cs" />
+    <Compile Include="MainWorker.cs" />
+    <Compile Include="Utilities\AnalysesUtils.cs" />
+    <Compile Include="Utilities\BoneLookup.cs" />
+    <Compile Include="Core\ScalingConfig.cs" />
+    <Compile Include="DisposableBase.cs" />
+    <Compile Include="Entities\Extensions\CurveExtension.cs" />
+    <Compile Include="Entities\Internal\BodyAnimation.cs" />
+    <Compile Include="Entities\Internal\BoneNode.cs" />
+    <Compile Include="Entities\Internal\KeyFrame.cs" />
+    <Compile Include="Entities\Pmx\BodyAnchor.cs" />
+    <Compile Include="Entities\Pmx\BoneFlags.cs" />
+    <Compile Include="Entities\Pmx\BoneWeight.cs" />
+    <Compile Include="Entities\Pmx\BoundingBoxKind.cs" />
+    <Compile Include="Entities\Pmx\Deformation.cs" />
+    <Compile Include="Entities\Pmx\ElementType.cs" />
+    <Compile Include="Entities\Pmx\Extensions\PmxBoneExtensions.cs" />
+    <Compile Include="Entities\Pmx\IKLink.cs" />
+    <Compile Include="Entities\Pmx\IPmxNamedObject.cs" />
+    <Compile Include="Entities\Pmx\JointKind.cs" />
+    <Compile Include="Entities\Pmx\KineticMode.cs" />
+    <Compile Include="Entities\Pmx\MaterialFlags.cs" />
+    <Compile Include="Entities\Pmx\MorphOffsetKind.cs" />
+    <Compile Include="Entities\Pmx\MorphOp.cs" />
+    <Compile Include="Entities\Pmx\NodeElement.cs" />
+    <Compile Include="Entities\Pmx\PmxBaseBody.cs" />
+    <Compile Include="Entities\Pmx\PmxBaseMorph.cs" />
+    <Compile Include="Entities\Pmx\PmxBodyPassGroup.cs" />
+    <Compile Include="Entities\Pmx\PmxBone.cs" />
+    <Compile Include="Entities\Pmx\PmxBoneMorph.cs" />
+    <Compile Include="Entities\Pmx\PmxGroupMorph.cs" />
+    <Compile Include="Entities\Pmx\PmxIK.cs" />
+    <Compile Include="Entities\Pmx\PmxImpulseMorph.cs" />
+    <Compile Include="Entities\Pmx\PmxJoint.cs" />
+    <Compile Include="Entities\Pmx\PmxMaterial.cs" />
+    <Compile Include="Entities\Pmx\PmxMaterialMorph.cs" />
+    <Compile Include="Entities\Pmx\PmxModel.cs" />
+    <Compile Include="Entities\Pmx\PmxMorph.cs" />
+    <Compile Include="Entities\Pmx\PmxNode.cs" />
+    <Compile Include="Entities\Pmx\PmxRigidBody.cs" />
+    <Compile Include="Entities\Pmx\PmxSoftBody.cs" />
+    <Compile Include="Entities\Pmx\PmxUVMorph.cs" />
+    <Compile Include="Entities\Pmx\PmxVertex.cs" />
+    <Compile Include="Entities\Pmx\PmxVertexMorph.cs" />
+    <Compile Include="Entities\Pmx\SoftBodyConfig.cs" />
+    <Compile Include="Entities\Pmx\SoftBodyFlags.cs" />
+    <Compile Include="Entities\Pmx\SoftBodyMaterialConfig.cs" />
+    <Compile Include="Entities\Pmx\SoftBodyShape.cs" />
+    <Compile Include="Entities\Pmx\SphereTextureMode.cs" />
+    <Compile Include="Entities\Pmx\VertexPin.cs" />
+    <Compile Include="Entities\Vmd\IkControl.cs" />
+    <Compile Include="Entities\Vmd\VmdBaseFrame.cs" />
+    <Compile Include="Entities\Vmd\VmdBoneFrame.cs" />
+    <Compile Include="Entities\Vmd\VmdCameraFrame.cs" />
+    <Compile Include="Entities\Vmd\VmdFacialFrame.cs" />
+    <Compile Include="Entities\Vmd\VmdIkFrame.cs" />
+    <Compile Include="Entities\Vmd\VmdLightFrame.cs" />
+    <Compile Include="Entities\Vmd\VmdMotion.cs" />
+    <Compile Include="Extensions\ArrayExtensions.cs" />
+    <Compile Include="Extensions\BinaryReaderExtensions.cs" />
+    <Compile Include="Extensions\BinaryWriterExtensions.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\QuaternionExtensions.cs" />
+    <Compile Include="Extensions\UnityStudioMathExtensions.cs" />
+    <Compile Include="Extensions\Vector3Extensions.cs" />
+    <Compile Include="Core\PmxCreator.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\DirectBitmapAccess.cs" />
+    <Compile Include="Utilities\GeometryHelper.cs" />
+    <Compile Include="Utilities\MorphUtils.cs" />
+    <Compile Include="Core\UnityRotation.cs" />
+    <Compile Include="Core\VmdCreator.cs" />
+    <Compile Include="Utilities\TimedList`2.cs" />
+    <Compile Include="Utilities\UrlOpener.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FMain.TextBoxTracer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <None Include="OpenTK.dll.config" />
+    <None Include="Resources\facial_expr.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\thirdparty\AssetStudio\AssetStudioUtility\AssetStudioUtility.csproj">
+      <Project>{80aec261-21ee-4e4f-a93b-7a744dc84888}</Project>
+      <Name>AssetStudioUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\thirdparty\AssetStudio\AssetStudio\AssetStudio.csproj">
+      <Project>{7662f8c2-7bfd-442e-a948-a43b4f7eb06e}</Project>
+      <Name>AssetStudio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AssetStudio.Extended.CompositeModels\AssetStudio.Extended.CompositeModels.csproj">
+      <Project>{a6d3ffb6-4148-476a-ae9a-bd78f76dbbad}</Project>
+      <Name>AssetStudio.Extended.CompositeModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AssetStudio.Extended.MonoBehaviours\AssetStudio.Extended.MonoBehaviours.csproj">
+      <Project>{45ae5ed2-589b-422b-98f7-48050b3ce3b8}</Project>
+      <Name>AssetStudio.Extended.MonoBehaviours</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Imas.Data.Serialized\Imas.Data.Serialized.csproj">
+      <Project>{3e816e61-9809-4b77-92d9-4ad891eaeaa3}</Project>
+      <Name>Imas.Data.Serialized</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TDFacial\TDFacial.csproj">
+      <Project>{e3565f75-fcfd-4518-9d18-9d1dcb682dee}</Project>
+      <Name>TDFacial</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FMain.resx">
+      <DependentUpon>FMain.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Icon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

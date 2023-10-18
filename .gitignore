@@ -1,0 +1,18 @@
+.vs
+.idea
+_ReSharper.*
+
+packages
+
+[Bb]in
+[Oo]bj
+[Dd]ebug
+[Rr]elease
+
+*.csproj.user
+*.sln.user
+*.DotSettings.user
+*.DotSettings
+
+# MLTD DB test data
+*.data
